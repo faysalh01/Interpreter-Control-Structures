@@ -41,3 +41,11 @@ RelationalExpr  ::= AdditiveExpr { ( "<" | "<=" | ">" | ">=" ) AdditiveExpr } ;
 AdditiveExpr    ::= MultiplicativeExpr { ( "+" | "-" ) MultiplicativeExpr } ;
 MultiplicativeExpr ::= Primary { ( "*" | "/" ) Primary } ;
 Primary         ::= Number | Identifier | "(" Expression ")" ;
+---
+
+## AI Use Statement
+
+* **AI Assistance Identified:** A personal AI assistant was utilized during the implementation phase specifically for targeted debugging and runtime error resolution.
+* **Verified & Modified Suggestion:** 
+  * *Suggestion:* The AI recommended adding a generic `print_ast` helper function into `ast_nodes.py` to resolve an `ImportError` in the parser module.
+  * *Modification/Correction:* The initial snippet provided by the AI contained syntax indentation issues that caused an `IndentationError` during test execution. We manually corrected and restructured the indentation levels of the recursive traversal loops so that the function integrated cleanly with the rest of the AST architecture without breaking module-level formatting.
