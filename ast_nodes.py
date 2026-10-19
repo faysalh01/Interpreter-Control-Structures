@@ -76,3 +76,15 @@ class WhileNode(ASTNode):
 
     def __repr__(self):
         return f"WhileNode({self.condition!r}, {self.body!r})"
+   
+   def print_ast(node, indent=0):
+    """Helper function to print AST structures recursively."""
+    print("  " * indent + str(node))
+    if hasattr(node, '__dict__'):
+        for key, value in node.__dict__.items():
+            if isinstance(value, list):
+                for item in value:
+                    if hasattr(item, '__class__') and issubclass(type(item), ASTNode):
+                        print_ast(item, indent + 2)
+            elif hasattr(value, '__class__') and issubclass(type(value), ASTNode):
+                print_ast(value, indent + 2)
